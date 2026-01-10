@@ -1,0 +1,8 @@
+{
+  "name": "Firqa - Moderniser le Louage en Tunisie",
+  "description": "Une plateforme complète pour les chauffeurs et passagers de louage, incluant la gestion financière par IA, la réservation centralisée, et des outils d'acquisition de clientèle.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
