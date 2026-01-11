@@ -1,0 +1,9 @@
+name = "firqa"
+type = "javascript"  # pour site statique
+account_id = "a765efd32045142f11db525bac5c136e"
+compatibility_date = "2026-01-11"
+
+[build]
+command = "npm run build"
+[build.upload]
+dir = "./dist"
