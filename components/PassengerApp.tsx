@@ -1289,11 +1289,7 @@ const PassengerApp: React.FC<PassengerAppProps> = ({ trips, onRequestBooking, us
                     <span>Frais de service</span>
                     <span>{priceDetails.service.toFixed(3)} TND</span>
                   </div>
-                  <div className="flex justify-between text-sm opacity-80">
-                    <span>TVA (19%)</span>
-                    <span>{priceDetails.vat.toFixed(3)} TND</span>
-                  </div>
-                  <div className="pt-2 border-t border-white/10 flex justify-between items-center">
+                                    <div className="pt-2 border-t border-white/10 flex justify-between items-center">
                     <div>
                       <span className="font-black block text-lg">Total TTC</span>
                       <span className="text-[10px] uppercase tracking-widest text-white/60 font-bold">TVA incluse</span>
