@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Search, MapPin, Calendar, Users, ChevronRight, Star, Clock, Shield, CheckCircle2, Briefcase, X, AlertCircle, Navigation, Car, Settings, Bell, Heart, Building2, Home } from 'lucide-react';
+import { Search, MapPin, Calendar, Users, ChevronRight, Star, Clock, Shield, CheckCircle2, Briefcase, X, AlertCircle, Navigation, Car, Settings, Bell, Heart, Building2, Home, User, ChevronDown, LogOut } from 'lucide-react';
 import { ROUTES } from '../constants';
 import { Trip, BookingRequest } from '../types';
 import OnDemandRequest from './OnDemandRequest';
@@ -86,6 +86,7 @@ const PassengerApp: React.FC<PassengerAppProps> = ({ trips, onRequestBooking, us
   const [noShowReason, setNoShowReason] = useState('');
   const [bookingStep, setBookingStep] = useState<'details' | 'payment'>('details');
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   const priceDetails = useMemo(() => {
     if (!selectedTrip) {
@@ -833,8 +834,41 @@ const PassengerApp: React.FC<PassengerAppProps> = ({ trips, onRequestBooking, us
                         <h3 className="text-xl font-black text-[#2F2E2E]">Coordonnées</h3>
                         <p className="text-sm text-gray-500">Modifiez vos informations de contact</p>
                       </div>
-                      <div className="text-xs font-bold bg-[#FAF7F2] text-[#B08968] px-4 py-1.5 rounded-full border border-[#D5BDAF]/40">
-                        Passager
+                      <div className="relative">
+                        <button
+                          onClick={() => setShowUserMenu(!showUserMenu)}
+                          className="text-xs font-bold bg-[#FAF7F2] text-[#B08968] px-4 py-1.5 rounded-full border border-[#D5BDAF]/40 hover:bg-[#F5EBE0] transition-colors flex items-center gap-2"
+                        >
+                          <User size={14} />
+                          {contactInfo.fullName || 'Utilisateur'}
+                          <ChevronDown size={12} className={`transition-transform ${showUserMenu ? 'rotate-180' : ''}`} />
+                        </button>
+                        
+                        {showUserMenu && (
+                          <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-[#D5BDAF]/40 z-50">
+                            <button
+                              onClick={() => {
+                                setShowUserMenu(false);
+                                setActiveSettingsTab('contact');
+                                setShowSettingsModal(true);
+                              }}
+                              className="w-full text-left px-4 py-3 hover:bg-[#F5EBE0] transition-colors flex items-center gap-3 text-sm"
+                            >
+                              <Settings size={16} />
+                              Paramètres
+                            </button>
+                            <button
+                              onClick={() => {
+                                setShowUserMenu(false);
+                                alert('Déconnexion...');
+                              }}
+                              className="w-full text-left px-4 py-3 hover:bg-[#F5EBE0] transition-colors flex items-center gap-3 text-sm text-red-600"
+                            >
+                              <LogOut size={16} />
+                              Déconnexion
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="grid md:grid-cols-2 gap-4">
