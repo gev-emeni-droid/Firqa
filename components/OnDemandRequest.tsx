@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, MapPin, Calendar, Users, ChevronRight, Star, Clock, Shield, CheckCircle2, Briefcase, X, AlertCircle, Navigation, Car, Settings, Bell, Heart, User, Phone, Package, Luggage } from 'lucide-react';
+import { Search, MapPin, Calendar, Users, ChevronRight, Star, Clock, Shield, CheckCircle2, Briefcase, X, AlertCircle, Navigation, Car, Settings, Bell, Heart, User, Phone, Package, Luggage, Building2, Home } from 'lucide-react';
 import { ROUTES } from '../constants';
 import { Trip, BookingRequest } from '../types';
 import DriverProfile from './DriverProfile';
@@ -344,6 +344,7 @@ const OnDemandRequest: React.FC<OnDemandRequestProps> = ({ onClose, onSubmit, re
                           : 'border-gray-200'
                       }`}
                     >
+                      <Building2 className="text-[#B08968] mb-2" size={24} />
                       <div className="font-bold text-[#2F2E2E]">Prendre au centre</div>
                       <p className="text-xs text-gray-500">Disponible gratuitement dans nos stations FIRQA</p>
                     </button>
@@ -356,6 +357,7 @@ const OnDemandRequest: React.FC<OnDemandRequestProps> = ({ onClose, onSubmit, re
                           : 'border-gray-200'
                       }`}
                     >
+                      <Home className="text-[#B08968] mb-2" size={24} />
                       <div className="font-bold text-[#2F2E2E]">Récupération à domicile</div>
                       <p className="text-xs text-[#B08968]">+ Frais calculés par le chauffeur selon la distance</p>
                     </button>
