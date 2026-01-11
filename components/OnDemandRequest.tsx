@@ -338,28 +338,28 @@ const OnDemandRequest: React.FC<OnDemandRequestProps> = ({ onClose, onSubmit, re
                     <button
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, pickupType: 'station' }))}
-                      className={`p-4 rounded-2xl border text-left space-y-1 ${
+                      className={`p-6 rounded-2xl border text-left space-y-2 transition-all ${
                         formData.pickupType === 'station'
-                          ? 'border-[#B08968] bg-[#FAF7F2]'
-                          : 'border-gray-200'
+                          ? 'border-[#B08968] bg-[#FAF7F2] shadow-md'
+                          : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
-                      <Building2 className="text-[#B08968] mb-2" size={24} />
-                      <div className="font-bold text-[#2F2E2E]">Prendre au centre</div>
-                      <p className="text-xs text-gray-500">Disponible gratuitement dans nos stations FIRQA</p>
+                      <Building2 className="text-[#B08968] mb-3" size={32} />
+                      <div className="font-bold text-[#2F2E2E]">Point FIRQA</div>
+                      <p className="text-xs text-gray-500">Gratuit</p>
                     </button>
                     <button
                       type="button"
                       onClick={() => setFormData(prev => ({ ...prev, pickupType: 'precise_address' }))}
-                      className={`p-4 rounded-2xl border text-left space-y-1 ${
+                      className={`p-6 rounded-2xl border text-left space-y-2 transition-all ${
                         formData.pickupType === 'precise_address'
-                          ? 'border-[#B08968] bg-[#FFF6E5]'
-                          : 'border-gray-200'
+                          ? 'border-[#B08968] bg-[#FFF6E5] shadow-md'
+                          : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
-                      <Home className="text-[#B08968] mb-2" size={24} />
-                      <div className="font-bold text-[#2F2E2E]">Récupération à domicile</div>
-                      <p className="text-xs text-[#B08968]">+ Frais calculés par le chauffeur selon la distance</p>
+                      <Home className="text-[#B08968] mb-3" size={32} />
+                      <div className="font-bold text-[#2F2E2E]">À votre adresse</div>
+                      <p className="text-xs text-[#B08968]">Frais applicables</p>
                     </button>
                   </div>
 
