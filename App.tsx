@@ -282,11 +282,39 @@ const App: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-2 px-4 py-2 bg-[#F5EBE0] rounded-full border border-[#D5BDAF]/30">
-              <User size={16} className="#B08968" />
-              <span className="text-sm font-bold text-[#7D4F50]">
-                {role === UserRole.PASSENGER ? 'Passager' : 'Admin'}
-              </span>
+            <div className="relative">
+              <button
+                onClick={() => setShowAccountMenu(!showAccountMenu)}
+                className="flex items-center gap-2 px-4 py-2 bg-[#F5EBE0] rounded-full border border-[#D5BDAF]/30 hover:bg-[#E8D5C4] transition-colors"
+              >
+                <User size={16} className="#B08968" />
+                <span className="text-sm font-bold text-[#7D4F50]">
+                  Utilisateur
+                </span>
+                <ChevronDown size={14} className={`transition-transform ${showAccountMenu ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {showAccountMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-[#D5BDAF]/30 z-50">
+                  <button
+                    onClick={() => {
+                      setShowAccountMenu(false);
+                      // Ouvrir les paramètres passager
+                    }}
+                    className="w-full text-left px-4 py-3 hover:bg-[#F5EBE0] transition-colors flex items-center gap-3 text-sm"
+                  >
+                    <SettingsIcon size={16} />
+                    Paramètres
+                  </button>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left px-4 py-3 hover:bg-[#F5EBE0] transition-colors flex items-center gap-3 text-sm text-red-600"
+                  >
+                    <LogOut size={16} />
+                    Déconnexion
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
